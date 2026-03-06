@@ -1,13 +1,9 @@
-Below is a **clean, professional version** of your `meta/main.yml` for an Ansible role. It includes proper license, supported platforms, tags, and updated Ansible version requirements.
-
-```yaml
+---
 galaxy_info:
   author: Srinivasarao Galla
   description: Simple Ansible role for demonstration and learning purposes
   company: sgalla.ie
-
   license: MIT
-
   min_ansible_version: "2.9"
 
   platforms:
@@ -23,7 +19,7 @@ galaxy_info:
     - automation
     - demo
     - devops
-    - role
+    - apache
 
 dependencies: []
 ```
