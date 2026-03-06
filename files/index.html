@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ansible + EC2 Demo | Srinu Galla</title>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+background:#f4f4f4;
+color:#333;
+}
+
+/* SKY */
+
+.sky-banner{
+position:relative;
+height:240px;
+background:linear-gradient(#6ec6ff,#e9f8ff);
+overflow:hidden;
+}
+
+/* CLOUDS */
+
+.cloud{
+position:absolute;
+background:white;
+border-radius:50px;
+opacity:0.9;
+}
+
+.cloud:before,.cloud:after{
+content:'';
+position:absolute;
+background:white;
+border-radius:50%;
+}
+
+.cloud1{
+width:140px;height:45px;top:42px;left:-200px;
+animation:cloudMove 60s linear infinite;
+}
+
+.cloud1:before{width:50px;height:50px;top:-20px;left:15px;}
+.cloud1:after{width:60px;height:60px;top:-25px;right:15px;}
+
+.cloud2{
+width:190px;height:52px;top:128px;left:-320px;
+animation:cloudMove 90s linear infinite;
+}
+
+.cloud2:before{width:60px;height:60px;top:-25px;left:20px;}
+.cloud2:after{width:70px;height:70px;top:-30px;right:20px;}
+
+@keyframes cloudMove{
+from{transform:translateX(0);}
+to{transform:translateX(140vw);}
+}
+
+/* FLIGHT GROUP */
+
+.flight{
+position:absolute;
+top:92px;
+left:-900px;
+display:flex;
+align-items:center;
+gap:0;
+animation:fly 18s linear infinite;
+}
+
+/* BANNER */
+
+.banner{
+margin-top:14px;
+color:white;
+padding:12px 32px;
+font-weight:700;
+font-size:15px;
+white-space:nowrap;
+
+background:linear-gradient(90deg,#ff3b3b,#ff6b6b);
+border-radius:10px;
+
+clip-path:polygon(
+0% 0%,
+95% 0%,
+100% 50%,
+95% 100%,
+0% 100%,
+4% 50%
+);
+
+box-shadow:0 6px 14px rgba(0,0,0,0.18);
+animation:flagWave 1.6s ease-in-out infinite;
+}
+
+@keyframes flagWave{
+0%{transform:skewX(0deg);}
+25%{transform:skewX(-6deg);}
+50%{transform:skewX(0deg);}
+75%{transform:skewX(6deg);}
+100%{transform:skewX(0deg);}
+}
+
+/* ROPE */
+
+.rope{
+width:220px;
+height:2px;
+background:#2b2b2b;
+margin-top:12px;
+}
+
+/* AIRPLANE */
+
+.plane{
+width:240px;
+filter:drop-shadow(0 3px 4px rgba(0,0,0,0.15));
+}
+
+/* FLIGHT PATH */
+
+@keyframes fly{
+0%{transform:translateX(0);}
+25%{transform:translateX(30vw) translateY(-6px);}
+50%{transform:translateX(60vw) translateY(6px);}
+75%{transform:translateX(90vw) translateY(-5px);}
+100%{transform:translateX(170vw);}
+}
+
+/* PAGE */
+
+header{
+background:#4CAF50;
+color:white;
+padding:1em;
+text-align:center;
+}
+
+main{
+padding:2em 1.2em 5em;
+max-width:900px;
+margin:auto;
+text-align:center;
+}
+
+.cta{
+display:inline-block;
+margin-top:14px;
+padding:10px 16px;
+background:#4CAF50;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:700;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:1em;
+position:fixed;
+bottom:0;
+width:100%;
+}
+
+a{
+color:#1b7f1f;
+font-weight:bold;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sky-banner">
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="flight">
+
+<div class="banner">
+Provision AWS EC2 with Ansible • Learn DevOps at www.sgalla.ie
+</div>
+
+<div class="rope"></div>
+
+<!-- AIRPLANE -->
+<svg class="plane" viewBox="0 0 900 300">
+
+<!-- fuselage -->
+<path fill="#f2f2f2" stroke="#333" stroke-width="4"
+d="M70 190
+L470 170
+Q650 150 770 120
+Q840 100 890 115
+Q905 125 885 135
+Q770 180 655 200
+Q520 220 470 225
+L70 240 Z"/>
+
+<!-- cockpit -->
+<path fill="#2d2d2d"
+d="M820 130 Q840 118 860 125 Q840 140 820 140 Z"/>
+
+<!-- MAIN WING -->
+<polygon
+points="420,210 620,300 540,300 350,225"
+fill="#cfcfcf"
+stroke="#333"
+stroke-width="3"/>
+
+<!-- TAIL FIN -->
+<polygon
+points="170,185 120,95 230,140 215,185"
+fill="#cfcfcf"
+stroke="#333"
+stroke-width="3"/>
+
+<!-- TAIL WING -->
+<polygon
+points="205,220 120,235 205,250"
+fill="#cfcfcf"
+stroke="#333"
+stroke-width="3"/>
+
+<!-- ENGINES -->
+<ellipse cx="570" cy="235" rx="28" ry="18"
+fill="#9c9c9c"
+stroke="#333"
+stroke-width="3"/>
+
+<ellipse cx="640" cy="220" rx="28" ry="18"
+fill="#9c9c9c"
+stroke="#333"
+stroke-width="3"/>
+
+</svg>
+
+</div>
+
+</div>
+
+<header>
+<h1>Learn Ansible with Sree</h1>
+</header>
+
+<main>
+
+<h2>Ansible + AWS EC2</h2>
+
+<p><strong>This website was automatically deployed to AWS EC2 using Ansible.</strong></p>
+
+<p>
+This demo shows how to use Ansible to provision and configure an AWS EC2 instance
+and deploy a simple static application automatically.
+</p>
+
+<p>
+Want the playbooks and walkthrough?
+Visit <a href="https://sgalla.ie" target="_blank">www.sgalla.ie</a>
+</p>
+
+<a class="cta" href="https://sgalla.ie" target="_blank">
+Visit sgalla.ie
+</a>
+
+</main>
+
+<footer>
+<p>&copy; 2026 WWW.SGALLA.IE</p>
+</footer>
+
+</body>
+</html>
