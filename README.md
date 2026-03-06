@@ -1,38 +1,165 @@
-Role Name
-=========
+---
 
-A brief description of the role goes here.
+# Ansible Demo Role – Simple Role
 
-Requirements
-------------
+![Ansible](https://img.shields.io/badge/Ansible-Automation-red)
+![Platform](https://img.shields.io/badge/platform-Linux-blue)
+![License](https://img.shields.io/badge/license-BSD-green)
+![Status](https://img.shields.io/badge/status-demo-lightgrey)
+![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Overview
 
-Role Variables
---------------
+This repository provides a **simple Ansible role designed for demonstration and learning purposes**.
+It illustrates the standard **Ansible role structure**, making it suitable for DevOps engineers who want to understand how to build reusable infrastructure automation components.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The role can be used as a **starting template for developing production-ready Ansible roles** or as part of DevOps training and CI/CD demonstrations.
 
-Dependencies
-------------
+---
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Features
 
-Example Playbook
-----------------
+* Demonstrates **standard Ansible role structure**
+* Easily reusable within playbooks
+* Simple configuration and minimal dependencies
+* Suitable for **DevOps training, demos, and testing**
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+---
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+## Requirements
 
-License
--------
+Before using this role, ensure the following prerequisites are met:
 
-BSD
+* **Ansible 2.9 or later**
+* Linux-based target hosts (Ubuntu/Debian recommended)
+* SSH access to managed nodes
+* Python installed on target machines
 
-Author Information
-------------------
+Install Ansible if needed:
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+```bash
+pip install ansible
+```
+
+---
+
+## Role Variables
+
+Variables can be configured using standard Ansible variable locations:
+
+* `defaults/main.yml`
+* `vars/main.yml`
+* `group_vars/`
+* `host_vars/`
+
+Example variable configuration:
+
+```yaml
+# defaults/main.yml
+
+demo_message: "Hello from the Ansible Demo Role"
+```
+
+These variables can be overridden in playbooks or inventory files.
+
+---
+
+## Role Structure
+
+```
+roles/
+└── simple-role/
+    ├── tasks/
+    │   └── main.yml
+    ├── handlers/
+    │   └── main.yml
+    ├── defaults/
+    │   └── main.yml
+    ├── vars/
+    │   └── main.yml
+    ├── files/
+    ├── templates/
+    ├── meta/
+    │   └── main.yml
+    └── README.md
+```
+
+This follows the **recommended Ansible role directory structure**.
+
+---
+
+## Example Playbook
+
+Example playbook using this role:
+
+```yaml
+---
+- name: Run demo role
+  hosts: servers
+  become: true
+
+  roles:
+    - simple-role
+```
+
+Run the playbook:
+
+```bash
+ansible-playbook playbook.yml
+```
+
+---
+
+## Usage
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/Ansible-role.git
+```
+
+2. Add the role to your Ansible roles directory.
+
+3. Reference the role in your playbook.
+
+---
+
+## Use Cases
+
+This role can be used for:
+
+* Learning **Ansible role development**
+* Demonstrating **infrastructure automation**
+* Testing **CI/CD pipelines**
+* DevOps workshops and training
+
+---
+
+## Contributing
+
+Contributions are welcome.
+If you find improvements or want to extend the role, please:
+
+1. Fork the repository
+2. Create a new branch
+3. Submit a pull request
+
+---
+
+## License
+
+BSD License
+
+---
+
+## Author
+
+**Srinivasarao Galla**
+
+Website
+[https://www.sgalla.ie](https://www.sgalla.ie)
+
+GitHub
+[https://github.com](https://github.com/srinugalla)
+
+---
