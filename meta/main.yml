@@ -4,7 +4,8 @@ galaxy_info:
   description: Simple Ansible role for demonstration and learning purposes
   company: sgalla.ie
   license: MIT
-  min_ansible_version: "2.9"
+  min_ansible_version: "2.15"
+  role_name: simple_role
 
   platforms:
     - name: Ubuntu
@@ -22,38 +23,3 @@ galaxy_info:
     - apache
 
 dependencies: []
-```
-
-### Improvements made
-
-* Added a **valid SPDX license** (`MIT`)
-* Updated **minimum Ansible version to 2.9**
-* Added **supported platforms (Ubuntu/Debian)**
-* Added **useful Galaxy tags** for discoverability
-* Cleaned comments and unnecessary placeholders
-
-### Optional improvement (for Ansible Galaxy publishing)
-
-If you plan to publish this role later, you can also add:
-
-```yaml
-namespace: srinugalla
-role_name: simple_role
-```
-
-inside `galaxy_info`.
-
-Example:
-
-```yaml
-galaxy_info:
-  author: Srinivasarao Galla
-  namespace: srinugalla
-  role_name: simple_role
-```
-
-This makes the role appear as:
-
-```
-srinugalla.simple_role
-```
