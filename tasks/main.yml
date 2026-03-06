@@ -1,14 +1,22 @@
 ---
 # tasks file for httpd
-- name: Install apache httpd
+
+- name: Install Apache web server
   ansible.builtin.apt:
     name: apache2
     state: present
     update_cache: yes
-- name: Copy file with owner and permissions
+
+- name: Copy website index file
   ansible.builtin.copy:
-    src: files/index.html
+    src: index.html
     dest: /var/www/html/index.html
     owner: root
     group: root
     mode: '0644'
+
+- name: Ensure Apache service is running and enabled
+  ansible.builtin.service:
+    name: apache2
+    state: started
+    enabled: yes
